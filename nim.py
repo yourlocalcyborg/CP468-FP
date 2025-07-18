@@ -22,4 +22,8 @@ class Nim:
             return False
         
     def display(self):
+        # Display stones in a 1D grid
+        if self.stones > 0:
+            grid = ["O"] * self.stones
+            print(' '.join(grid))
         print(f"Stones remaining: {self.stones}")
