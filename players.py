@@ -23,12 +23,15 @@ class RandomAI():
 class MinimaxAI():
     def __init__(self, name="Minimax"):
         self.name = name
+        self.node_count = 0
 
     def pick_move(self, game):
         _, move = self.minimax(game, True)
         return move
 
     def minimax(self, game, is_maximizing):
+        self.node_count += 1
+
         if game.is_game_over():
             return (-1 if is_maximizing else 1), None  # Losing state
 
@@ -50,12 +53,16 @@ class MinimaxAI():
 class AlphaBetaAI():
     def __init__(self, name="AlphaBeta"):
         self.name = name
+        self.node_count = 0
+
 
     def pick_move(self, game):
         _, move = self.alphabeta(game, True, float('-inf'), float('inf'))
         return move
 
     def alphabeta(self, game, is_maximizing, alpha, beta):
+        self.node_count += 1
+
         if game.is_game_over():
             return (-1 if is_maximizing else 1), None
 
@@ -94,12 +101,15 @@ class AlphaBetaAI():
 class ExpectiminimaxAI():
     def __init__(self, name="Expectiminimax"):
         self.name = name
+        self.node_count = 0
 
     def pick_move(self, game):
         _, move = self.expectiminimax(game, True)
         return move
 
     def expectiminimax(self, game, is_maximizing):
+        self.node_count += 1
+        
         if game.is_game_over():
             return (-1 if is_maximizing else 1), None
 
