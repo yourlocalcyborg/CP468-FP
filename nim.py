@@ -12,7 +12,7 @@ class Nim:
         return self.stones <= 0
     
     def is_valid_move(self):
-        return self.moves 
+        return self.moves
     
     def apply_move(self, move):
         if move in self.is_valid_move():

@@ -20,10 +20,9 @@ def play_nim(player1, player2, total_stones=10):
         # Once game is over, display the losing player
         if game.is_game_over():
             game.display()
-            print(f"Player {current.name} loses")
+            print(f"Player {current.name} wins!")
         # Switch current player
         game.switch_player()
-
 p1 = players.HumanPlayer()
-p2 = players.RandomAI()
+p2 = players.MinimaxAI()
 play_nim(p1, p2)
