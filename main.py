@@ -1,5 +1,7 @@
 import nim
 import players
+from time import perf_counter_ns
+
 def play_nim(player1, player2, total_stones=10):
     
     game = nim.Nim(total_stones)
@@ -44,7 +46,20 @@ def pick_ai():
             return pick_ai()
 
 def compare_ai():
-    print("TODO\n")
+    AIs = [players.RandomAI(), players.MinimaxAI(), players.AlphaBetaAI(), players.ExpectiminimaxAI()]
+    ExecTime = []
+    NodeEvals = []
+    SuccessRate = []
+    # TODO: add tracking for node evaluations and success rate
+    for player in AIs:
+        game = nim.Nim(10)
+        start = perf_counter_ns()
+        player.pick_move(game)
+        end = perf_counter_ns()
+        ExecTime.append(end - start)
+
+    return ExecTime, NodeEvals, SuccessRate
+        
         
 def get_players():
     gamemode = input("Choose a game mode:\n(1) Player vs AI\n(2) AI vs AI\n(3) Compare AIs\n> ")
@@ -65,8 +80,9 @@ def get_players():
             p2 = pick_ai()
         # Compare AI
         elif int(gamemode) == 3:
-            compare_ai()
             p1, p2 = None, None
+            ExecTime, NodeEvals, SuccessRate = compare_ai()
+            print(ExecTime)
         else:
             print("Please enter a given integer")
             return get_players()
