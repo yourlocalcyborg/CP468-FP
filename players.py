@@ -16,6 +16,8 @@ class HumanPlayer():
 class RandomAI():
     def __init__(self, name="Random"):
         self.name = name
+        self.node_count = 0
+        
     def pick_move(self, game):
         return random.choice(game.is_valid_move())
         

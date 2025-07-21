@@ -52,11 +52,14 @@ def compare_ai():
     SuccessRate = []
     # TODO: add tracking for node evaluations and success rate
     for player in AIs:
-        game = nim.Nim(10)
+        game = nim.Nim(13)
+
         start = perf_counter_ns()
         player.pick_move(game)
         end = perf_counter_ns()
+
         ExecTime.append(end - start)
+        NodeEvals.append(player.node_count)
 
     return ExecTime, NodeEvals, SuccessRate
         
@@ -80,9 +83,11 @@ def get_players():
             p2 = pick_ai()
         # Compare AI
         elif int(gamemode) == 3:
+            print("Testing...")
             p1, p2 = None, None
             ExecTime, NodeEvals, SuccessRate = compare_ai()
-            print(ExecTime)
+            print(f"Execution Time: {ExecTime}")
+            print(f"Node Evaluations: {NodeEvals}")
         else:
             print("Please enter a given integer")
             return get_players()
