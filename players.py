@@ -1,5 +1,6 @@
 import random
 from nim import Nim
+import google.generativeai as genai
 
 class HumanPlayer():
     def __init__(self, name="Human"):
@@ -158,4 +159,22 @@ class ExpectiminimaxAI():
                 outcomes.append(val)
 
         return sum(outcomes) / len(outcomes)
+
+class GeminiAI():
+    def __init__(self, name="Gemini"):
+        self.name = name
+        GEMINI_API_KEY = "AIzaSyDvrTbep00U4qWc9uBSZ5X_qydgYZ7tEWA"
+        genai.configure(api_key=GEMINI_API_KEY)
+        self.model = genai.GenerativeModel('gemini-1.5-flash')
+    def pick_move(self, game):
+        query = ( f"You are playing a simplified version of the game Nim."
+                  f"You win when the numbers stones goes to 0 on your turn."
+                  f"There are currently {game.stones} stones left in the pile."
+                  f"You can take 1, 2, or 3 stones."
+                  f"You must make a decision that leaves your opponent at a disadvantage."
+                  f"Keep your responses to a single integer with no punctuation."
+                )
+        response = self.model.generate_content(query)
+        move = int(response.text)
+        return move
 

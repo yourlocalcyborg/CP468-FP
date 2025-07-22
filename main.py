@@ -27,7 +27,7 @@ def play_nim(player1, player2, total_stones=10):
         game.switch_player()
 
 def pick_ai():
-    choice = input("(1) Random\n(2) Minimax\n(3) Alpha Beta\n(4) Expectiminimax\n> ")
+    choice = input("(1) Random\n(2) Minimax\n(3) Alpha Beta\n(4) Expectiminimax\n(5) GeminiAI\n> ")
     if not choice.isdigit():
         # Show input menu if incorrect input given
         print("Please enter a given integer")
@@ -41,6 +41,8 @@ def pick_ai():
             return players.AlphaBetaAI()
         if int(choice) == 4:
             return players.ExpectiminimaxAI()
+        if int(choice) == 5:
+            return players.GeminiAI()
         else:
             print("Please enter a given integer")
             return pick_ai()
