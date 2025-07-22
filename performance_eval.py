@@ -1,6 +1,6 @@
 import time
 from nim import Nim
-from players import MinimaxAI, ExpectiminimaxAI
+from players import MinimaxAI, ExpectiminimaxAI, AlphaBetaAI, RandomAI
 
 def run_performance_evaluation(player1_class, player2_class, num_games=100, initial_stones=10):
     """
