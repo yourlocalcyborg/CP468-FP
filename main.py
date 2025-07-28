@@ -1,6 +1,7 @@
 import nim
 import players
 from time import perf_counter_ns
+import ui
 
 def play_nim(player1, player2, total_stones=10):
     
@@ -67,7 +68,7 @@ def compare_ai():
         
         
 def get_players():
-    gamemode = input("Choose a game mode:\n(1) Player vs AI\n(2) AI vs AI\n(3) Compare AIs\n> ")
+    gamemode = input("Choose a game mode:\n(1) Player vs AI\n(2) AI vs AI\n(3) Compare AIs\n(4) Open UI\n> ")
     if not gamemode.isdigit():
         print("Please enter a given integer")
         return get_players()
@@ -90,6 +91,9 @@ def get_players():
             ExecTime, NodeEvals, SuccessRate = compare_ai()
             print(f"Execution Time: {ExecTime}")
             print(f"Node Evaluations: {NodeEvals}")
+        # Open UI
+        elif int(gamemode) == 4:
+            ui.runUI()
         else:
             print("Please enter a given integer")
             return get_players()
