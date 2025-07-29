@@ -165,7 +165,7 @@ class GeminiAI():
         self.name = name
         GEMINI_API_KEY = "AIzaSyDvrTbep00U4qWc9uBSZ5X_qydgYZ7tEWA"
         genai.configure(api_key=GEMINI_API_KEY)
-        self.model = genai.GenerativeModel('gemini-1.5-flash')
+        self.model = genai.GenerativeModel('gemini-2.0-flash')
     def pick_move(self, game):
         query = ( f"You are playing a simplified version of the game Nim."
                   f"You win when the numbers stones goes to 0 on your turn."
