@@ -9,21 +9,9 @@ import seaborn as sns
 import google.generativeai as genai
 import os
 
-# Assume Nim and player classes are in these files based on the git clone
-# You might need to adjust paths or include the class definitions directly if they are not in these files
+
 from nim import Nim
 from players import MinimaxAI, ExpectiminimaxAI, AlphaBetaAI, RandomAI, GeminiAI, HumanPlayer
-
-# --- AI Class Definitions (Assuming they are in players.py and nim.py) ---
-# If you are not using the git cloned repository structure,
-# you will need to include the class definitions for Nim, HumanPlayer,
-# RandomAI, MinimaxAI, AlphaBetaAI, ExpectiminimaxAI, and GeminiAI here.
-# For example:
-# class Nim:
-#     ...
-# class MinimaxAI:
-#     ...
-# etc.
 
 # --- Performance Evaluation Function ---
 def run_performance_evaluation(player1_class, player2_class, num_games=100, initial_stones=10):
