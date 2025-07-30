@@ -20,7 +20,7 @@ def play_nim(player1, player2, total_stones=10):
         game.apply_move(move)
         # Display the number of stones removed
         print(f"Stones removed: {move}")
-        # Once game is over, display the losing player
+        # Once game is over, display the winning player
         if game.is_game_over():
             game.display()
             print(f"Player {current.name} wins!")
