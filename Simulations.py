@@ -56,14 +56,13 @@ def run_performance_evaluation(player1_class, player2_class, num_games=100, init
         game_duration = game_end_time - game_start_time
         total_game_time += game_duration
 
-        # Assuming AI classes have a node_count attribute
         if hasattr(player1, 'node_count'):
              player1_total_nodes += player1.node_count
         if hasattr(player2, 'node_count'):
              player2_total_nodes += player2.node_count
 
 
-        if is_player1_turn:  # If it's player 1's turn after the game is over, player 2 won
+        if is_player1_turn:  
             player2_wins += 1
         else:
             player1_wins += 1
